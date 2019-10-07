@@ -5,4 +5,4 @@ Drums is a simple music insturement coded with react.js .
 comming soon ...
 
 ## thanks To 
-freecodecamp team for inspiaration
+FreeCodeCamp team for inspiaration
