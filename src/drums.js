@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import $ from "jquery";
+import 'rangeslider.js';
 
 
 const bankOne = [{
@@ -127,10 +128,15 @@ class Drums extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            status: "on",
+            bank : "one"
 
         };
 
-
+        this.play = this.play.bind(this);
+        this.onoff = this.onoff.bind(this);
+        this.bank = this.bank.bind(this);
+        this.volume = this.volume.bind(this);
     }
 
     handleChange(event) {
@@ -139,6 +145,174 @@ class Drums extends React.Component {
         });
     }
 
+    onoff() {
+        //let status = event.target.value;
+        //console.log(status);
+        if(this.state.status === "off"){ return this.setState({ status :"on"}) }
+        if(this.state.status === "on"){ return this.setState({ status :"off"}) }
+    }
+
+    bank(){
+        if(this.state.bank === "one"){ return this.setState({ bank :"two"}) }
+        if(this.state.bank === "two"){ return this.setState({ bank :"one"}) }
+    }
+
+    volume(){
+        let vol = $('#myRange')[0].value/100;
+        console.log(vol);
+        let el = $('audio');
+        console.log(el)
+        $('Audio').volume = vol;
+    }
+
+
+    play(event) {
+
+        //console.log(event.target);
+    let tar = event.target.id;
+    let key = event.target.keyCode;
+    console.log(key);
+    console.log(event)
+    if(this.state.status === "on"){  
+        if (this.state.bank === "one"){  
+        if (tar === "Q" || key == 81) {
+            let elem = bankOne[0];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+
+        }
+        if (tar === "W") {
+            let elem = bankOne[1];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "E") {
+            let elem = bankOne[2];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+
+        }
+        if (tar === "A") {
+            let elem = bankOne[3];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "S") {
+            let elem = bankOne[4];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "D") {
+            let elem = bankOne[5];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "Z") {
+            let elem = bankOne[6];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }if (tar === "X") {
+            let elem = bankOne[7];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }if (tar === "C") {
+            let elem = bankOne[8];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+
+
+    } //end of bankone
+
+
+    if (this.state.bank === "two"){  
+        if (tar === "Q") {
+            let elem = bankTwo[0];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "W") {
+            let elem = bankTwo[1];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "E") {
+            let elem = bankTwo[2];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "A") {
+            let elem = bankTwo[3];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "S") {
+            let elem = bankTwo[4];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "D") {
+            let elem = bankTwo[5];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+        if (tar === "Z") {
+            let elem = bankTwo[6];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }if (tar === "X") {
+            let elem = bankTwo[7];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }if (tar === "C") {
+            let elem = bankTwo[8];
+            //console.log(elem);
+            var audio = new Audio(elem.url);
+            audio.play();
+            $('#show').html('<p>'+ elem.id +'</p>');
+        }
+
+
+    }//end of bank two
+
+  
+    } //end of onoff
+
+} //end of function play   
 
     render() {
         return (
@@ -146,34 +320,35 @@ class Drums extends React.Component {
                 <h1> Drums </h1>
                 <div className="container" >
                     <div className="row">
-                        <div className="col-md-1" style={inactiveStyle}>Q</div>
-                        <div className="col-md-1" style={inactiveStyle}>W</div>
-                        <div className="col-md-1" style={inactiveStyle}>E</div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="Q" onClick={this.play}>Q</button></div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="W" onClick={this.play}>W</button></div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="E" onClick={this.play}>E</button></div>
                         <div className="col-md-1"></div>
                         <div className="col-md-6"   >
                             <div className="col-md-1" style={widget_style} > Power </div>
                             <div className="col-md-1" style={widget_style} >
-                                <label className="switch"> <input type="checkbox"></input><span className="slider"></span>
+                                <label className="switch"> <input type="checkbox" defaultChecked value="on" onChange={this.onoff} ></input><span className="slider"></span>
                                 </label></div>
-                            <div className="col-md-1" style={widget_style} >Bank</div>
+                            <div className="col-md-1" style={widget_style} >Bank 2</div>
                             <div className="col-md-1" style={widget_style}>
-                                <label className="switch"> <input type="checkbox"></input><span className="slider"></span>
+                                <label className="switch"> <input type="checkbox" defaultChecked onChange={this.bank}></input><span className="slider"></span>
                                 </label></div>
+                                <div className="col-md-1" style={widget_style} >Bank 1</div>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-1" style={inactiveStyle}>A</div>
-                        <div className="col-md-1" style={inactiveStyle}>S</div>
-                        <div className="col-md-1" style={inactiveStyle}>D</div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="A" onClick={this.play}>A</button></div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="S" onClick={this.play}>S</button></div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="D" onClick={this.play}>D</button></div>
                         <div className="col-md-2" ></div>
-                        <div className="col-md-4" style={inactiveStyle}  >  </div>
+                        <div id="show" className="col-md-4" style={inactiveStyle}  >  </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-1" style={inactiveStyle}>Z</div>
-                        <div className="col-md-1" style={inactiveStyle}>X</div>
-                        <div className="col-md-1" style={inactiveStyle}>C</div>
-                        <div className="col-md-2"></div>
-                        <div className="col-md-4 slidecontainer" style={{ marginTop: '1%' }}  >  <input type="range" min="1" max="100" value="50" className="slider1" id="myRange" ></input> </div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="Z" onClick={this.play}>Z</button></div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="X" onClick={this.play}>X</button></div>
+                        <div className="col-md-1" style={inactiveStyle}><button id="C" onClick={this.play}>C</button></div>
+                        <div className="col-md-2"> </div>
+                        <div className="col-md-4 slidecontainer" style={{ marginTop: '1%' }}  >  <input type="range" min="1" max="100" onChange={this.volume} n  className="slider1" id="myRange" ></input> </div>
                     </div>
                 </div>
             </div>
