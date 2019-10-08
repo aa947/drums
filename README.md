@@ -7,6 +7,8 @@ Drums is a simple music insturement coded with react.js .
 <li>you can use the power switch to turn the Drums device on or off.</li>
 <li>you get the name of the note after you press it.</li>
 </ul>
+
+
 ## live version 
 comming soon ...
 
