@@ -10,7 +10,7 @@ Drums is a simple music insturement coded with react.js .
 
 
 ## live version 
-comming soon ...
+here https://drums--ahmadali5.repl.co/
 
 ## thanks To 
 FreeCodeCamp team for inspiaration
