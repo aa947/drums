@@ -12,5 +12,8 @@ Drums is a simple music insturement coded with react.js .
 ## live version 
 here https://drums--ahmadali5.repl.co/
 
-## thanks To 
-FreeCodeCamp team for inspiaration
+## video 
+[![Drums](http://img.youtube.com/vi/fIznMBbmCAo/0.jpg)](http://www.youtube.com/watch?v=fIznMBbmCAo "Drums")
+
+## My portfolio:
+http://www.ahmad-ali.co.uk/
